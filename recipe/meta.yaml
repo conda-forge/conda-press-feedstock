@@ -1,5 +1,5 @@
 {% set name = "conda-press" %}
-{% set version = "0.0.4" %}
+{% set version = "0.0.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/regro/conda-press/releases/download/{{ version }}/conda-press-{{ version }}.tar.gz
-  sha256: 40509fd610a7ff119c2883a6b938c23a1c5f44ddb6439be60c42577c7e3f6dcb
+  sha256: 32aa8eb7553b98c5a8e15a3e8ae6e42d2dd43a2e47c0344cc0c526e68aaa35e8
 
 build:
   number: 0
