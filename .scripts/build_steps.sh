@@ -38,8 +38,8 @@ if [[ "${UPLOAD_PACKAGES}" != "False" ]]; then
 fi
 
 if [[ -f "${CONDA_PRESS_CONFIG}" ]]; then
-    conda install -c conda-forge conda-press --yes --quiet
-    conda press --config "${CONDA_PRESS_CONFIG}" "${FEEDSTOCK_ROOT}/build_artifacts/linux-64" --add-deps pytest-cov --exclude-deps pytest-cov
+    conda install -c marcelotrevisani conda-press --yes --quiet
+    conda press --config "${CONDA_PRESS_CONFIG}" "${FEEDSTOCK_ROOT}/build_artifacts/linux-64"
     ls "${FEEDSTOCK_ROOT}/build_artifacts/linux-64"
 fi
 
