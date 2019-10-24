@@ -11,6 +11,7 @@ export FEEDSTOCK_ROOT="${FEEDSTOCK_ROOT:-/home/conda/feedstock_root}"
 export RECIPE_ROOT="${RECIPE_ROOT:-/home/conda/recipe_root}"
 export CI_SUPPORT="${FEEDSTOCK_ROOT}/.ci_support"
 export CONFIG_FILE="${CI_SUPPORT}/${CONFIG}.yaml"
+export CONDA_PRESS_CONFIG="${RECIPE_ROOT}/conda-press.yaml"
 
 cat >~/.condarc <<CONDARC
 
@@ -34,6 +35,11 @@ conda build "${RECIPE_ROOT}" -m "${CI_SUPPORT}/${CONFIG}.yaml" \
 
 if [[ "${UPLOAD_PACKAGES}" != "False" ]]; then
     upload_package "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
+fi
+
+if [[ -f "${CONDA_PRESS_CONFIG}" ]]; then
+    conda install -c conda-forge conda-press --yes --quiet
+    conda press --config "${CONDA_PRESS_CONFIG}" "${FEEDSTOCK_ROOT}/build_artifacts/linux-64"
 fi
 
 touch "${FEEDSTOCK_ROOT}/build_artifacts/conda-forge-build-done-${CONFIG}"
