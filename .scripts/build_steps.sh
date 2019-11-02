@@ -38,7 +38,7 @@ if [[ "${UPLOAD_PACKAGES}" != "False" ]]; then
 fi
 
 if [[ -f "${CONDA_PRESS_CONFIG}" ]]; then
-    conda install -c marcelotrevisani conda-press --yes --quiet
+    conda install -c marcelotrevisani conda-press=0.0.6.dev --yes --quiet
     conda press --config "${CONDA_PRESS_CONFIG}" "${FEEDSTOCK_ROOT}/build_artifacts/linux-64"
     ls "${FEEDSTOCK_ROOT}/build_artifacts/linux-64"
 fi
