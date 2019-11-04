@@ -37,6 +37,7 @@ if [[ "${UPLOAD_PACKAGES}" != "False" ]]; then
     upload_package "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
 fi
 
+
 if [[ -f "${CONDA_PRESS_CONFIG}" ]]; then
     conda install conda-press=0.0.6 --yes --quiet
     conda press --config "${CONDA_PRESS_CONFIG}" "${FEEDSTOCK_ROOT}/build_artifacts/linux-64"
