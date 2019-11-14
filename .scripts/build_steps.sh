@@ -40,7 +40,7 @@ fi
 
 if [[ -f "${CONDA_PRESS_CONFIG}" ]]; then
     conda install conda-press=0.0.6 --yes --quiet
-    conda press --config "${CONDA_PRESS_CONFIG}" --subdir "${FEEDSTOCK_ROOT}/build_artifacts"
+    conda press --config "${CONDA_PRESS_CONFIG}" "${FEEDSTOCK_ROOT}/build_artifacts/linux-64/*.tar.bz2"
     ls "${FEEDSTOCK_ROOT}/build_artifacts/linux-64"
 fi
 
