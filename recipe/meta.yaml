@@ -16,9 +16,14 @@ build:
 
 requirements:
   host:
-    - python
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - pip
+  host:
+    - python {{ python_min }}
     - pip
   run:
+    - python >={{ python_min }}
     - python
     - conda
     - requests
